@@ -1,15 +1,17 @@
-import { Text } from "react-native";
+import { Text, TextStyle } from "react-native";
 import React from "react";
 
 interface Props {
     children: React.ReactNode;
     className?: string;
+    style?: TextStyle;
 }
 
-const Title = ({ children, className }: Props) => {
+const Title = ({ children, className = "", style }: Props) => {
     return (
         <Text
-            className={`text-5xl font-semibold${className ? ` ${className}` : ""}`}
+            style={style}
+            className={`text-5xl font-semibold ${className}`}
         >
             {children}
         </Text>
