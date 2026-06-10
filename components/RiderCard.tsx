@@ -5,6 +5,7 @@ import { TabBarIcon } from "./navigation/TabBarIcon";
 import { selectTravelTimeInformation } from "@/store/uberSlices";
 import { useSelector } from "react-redux";
 import { useNavigation } from "expo-router";
+import { useAppSelector } from "@/hooks/hooks";
 
 type RideOption = {
   _id: string;
@@ -32,7 +33,7 @@ const CHARGE_RATE = 1.7;
 
 const RiderCard = ({ setShowRider }: any) => {
   const [selected, setSelected] = useState<RideOption | null>(null);
-  const travelTimeInformation = useSelector(selectTravelTimeInformation) || {
+  const travelTimeInformation = useAppSelector(selectTravelTimeInformation) || {
     distance: { text: "No distance", value: 0 },
     duration: { text: "No duration", value: 0 },
   };
